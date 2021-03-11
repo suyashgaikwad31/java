@@ -1,15 +1,18 @@
-public class EmpWageBuilderUC2 {
+public class EmpWageBuilderIF {
 
         public static void main(String [ ] args) {
                 // Constants
-                int IS_FULL_TIME = 1;
+                int IS_PART_TIME = 1;
+                int IS_FULL_TIME = 2;
                 int EMP_RATE_PER_HOUR = 20;
                 //Variables
                 int empHrs = 0;
                 int empWage = 0;
                         // Computation
-                double empcheck = Math.floor(Math.random() * 10) % 2;
-                if (empcheck == IS_FULL_TIME)
+                double empcheck = Math.floor(Math.random() * 10) % 3;
+                if (empcheck == IS_PART_TIME)
+                    empHrs = 4;
+                else if (empcheck == IS_FULL_TIME)
                     empHrs = 8;
                 else
                     empHrs = 0;
@@ -17,6 +20,11 @@ public class EmpWageBuilderUC2 {
                 System.out.println("Emp Wage: " + empWage);
         }
 }
+
+
+
+
+
 
 
 
