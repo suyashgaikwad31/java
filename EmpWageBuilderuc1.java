@@ -7,14 +7,14 @@ public class EmpWageBuilderObject {
     private final int empRatePerHour;
     private final int numOfWorkingDays;
     private final int maxHoursPerMonth;
-    private final int totalEmpWage;
+    private  int totalEmpWage;
 
     public EmpWageBuilderObject(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)  {
 
                 this.company = company;
 		this.empRatePerHour = empRatePerHour;
 		this.numOfWorkingDays = numOfWorkingDays;
-		this. maxHoursPerMonth =  maxHoursPerMonth;
+		this.maxHoursPerMonth =  maxHoursPerMonth;
     }
 
     public void computerEmpWage() {
@@ -38,7 +38,7 @@ public class EmpWageBuilderObject {
                 totalEmpHrs += empHrs;
                 System.out.println("Day#: " + totalWorkingDays + " Emp Hr: " +empHrs);
           }
-          totalEmpWage = totalEmpHrs * empRatePerHour;
+           totalEmpWage = totalEmpHrs * empRatePerHour;
        }
 	@Override
 	public String toString() {
