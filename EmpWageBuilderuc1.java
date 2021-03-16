@@ -1,15 +1,27 @@
-public class EmpWageBuilderMultiCompany {
+public class EmpWageBuilderObject {
 
     public static final int IS_PART_TIME = 1;
     public static final int IS_FULL_TIME = 2;
 
-        public static int computerEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)  {
-                //Variables
-                int empHrs = 0;
-                int totalEmpHrs = 0;
-                int totalWorkingDays = 0;
-                // Computation
-                while (totalEmpHrs <= maxHoursPerMonth &&
+    private final String company;
+    private final int empRatePerHour;
+    private final int numOfWorkingDays;
+    private final int maxHoursPerMonth;
+    private final int totalEmpWage;
+
+    public EmpWageBuilderObject(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)  {
+
+                this.company = company;
+		this.empRatePerHour = empRatePerHour;
+		this.numOfWorkingDays = numOfWorkingDays;
+		this. maxHoursPerMonth =  maxHoursPerMonth;
+    }
+
+    public void computerEmpWage() {
+	//variable
+	int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
+	//Computation
+        while (totalEmpHrs <= maxHoursPerMonth &&
                         totalWorkingDays < numOfWorkingDays) {
                    totalWorkingDays++;
                 int empcheck = (int) Math.floor(Math.random() * 10) % 3;
@@ -26,12 +38,21 @@ public class EmpWageBuilderMultiCompany {
                 totalEmpHrs += empHrs;
                 System.out.println("Day#: " + totalWorkingDays + " Emp Hr: " +empHrs);
           }
-          int totalEmpWage = totalEmpHrs * empRatePerHour;
-          System.out.println("Total Emp Wage: " + totalEmpWage);
-          return totalEmpWage;
+          totalEmpWage = totalEmpHrs * empRatePerHour;
        }
-        public static void main(String[] args) {
-                computerEmpWage("DMart", 20, 2, 10);
-		computerEmpWage("Reliance", 10, 4, 20);
+	@Override
+	public String toString() {
+	   return "Total Emp Wage for Company: " +company+ " is: " + totalEmpWage;
         }
+        public static void main(String[] args) {
+              EmpWageBuilderObject dMart = new EmpWageBuilderObject("DMart", 20, 2, 10);
+	      EmpWageBuilderObject reliance = new EmpWageBuilderObject("Reliance", 10, 4, 20);
+	      dMart.computerEmpWage();
+	      System.out.println(dMart);
+	      reliance.computerEmpWage();
+	      System.out.println(reliance);
+
+        }
+
+
 }
